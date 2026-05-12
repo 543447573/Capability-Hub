@@ -1,0 +1,51 @@
+{
+  "skills": {
+    "my-weather-skill": {
+      "capabilities": [
+        "api/weather",
+        "mcp/email"
+      ],
+      "name": "my-weather-skill",
+      "addedAt": "2026-05-11T06:23:54.612Z"
+    },
+    "my-notification-skill": {
+      "capabilities": [
+        "mcp/notification",
+        "mcp/slack"
+      ],
+      "name": "my-notification-skill",
+      "addedAt": "2026-05-11T06:24:32.097Z"
+    }
+  },
+  "capabilities": {
+    "api/weather": {
+      "skills": [
+        "my-weather-skill"
+      ],
+      "name": "Weather API",
+      "addedAt": "2026-05-11T06:23:54.612Z"
+    },
+    "mcp/email": {
+      "skills": [
+        "my-weather-skill"
+      ],
+      "name": "Email",
+      "addedAt": "2026-05-11T06:24:00.275Z"
+    },
+    "mcp/notification": {
+      "skills": [
+        "my-notification-skill"
+      ],
+      "name": "System Notification",
+      "addedAt": "2026-05-11T06:24:32.097Z"
+    },
+    "mcp/slack": {
+      "skills": [
+        "my-notification-skill"
+      ],
+      "name": "Slack",
+      "addedAt": "2026-05-11T06:24:32.099Z"
+    }
+  },
+  "lastUpdated": "2026-05-11T06:24:32.099Z"
+}

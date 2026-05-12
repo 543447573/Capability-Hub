@@ -1,0 +1,35 @@
+{
+  "mcpServers": [
+    {
+      "id": "my-custom-mcp",
+      "name": "我的自定义MCP",
+      "description": "测试自定义MCP条目",
+      "category": "utility",
+      "source": {
+        "type": "custom"
+      },
+      "configTemplate": {
+        "command": "node",
+        "args": [
+          "server.js"
+        ]
+      },
+      "configParams": [
+        {
+          "name": "port",
+          "type": "string",
+          "required": false,
+          "description": "服务端口",
+          "default": "3000"
+        }
+      ],
+      "capabilities": [
+        "测试"
+      ],
+      "popularity": 1,
+      "verified": false
+    }
+  ],
+  "version": "1.0.0",
+  "updatedAt": "2026-05-11"
+}

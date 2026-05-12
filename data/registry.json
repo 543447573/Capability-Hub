@@ -1,0 +1,625 @@
+{
+  "version": "1.5.0",
+  "capabilities": [
+    {
+      "id": "mcp/filesystem",
+      "name": "File System",
+      "description": "Provides file system operations - read, write, list directories",
+      "type": "mcp",
+      "category": [
+        "file/system"
+      ],
+      "tags": [
+        "filesystem",
+        "read",
+        "write"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T05:55:53.348Z",
+      "updatedAt": "2026-05-11T05:55:53.355Z"
+    },
+    {
+      "id": "api/openai-chat",
+      "name": "OpenAI Chat",
+      "description": "OpenAI GPT model chat API interface",
+      "type": "api",
+      "category": [
+        "ai/openai"
+      ],
+      "tags": [
+        "openai",
+        "gpt",
+        "chat",
+        "ai"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T05:55:53.864Z",
+      "updatedAt": "2026-05-11T05:55:53.866Z"
+    },
+    {
+      "id": "mcp/browser",
+      "name": "Browser Control",
+      "description": "Browser automation and web scraping capabilities",
+      "type": "mcp",
+      "category": [
+        "browser/web"
+      ],
+      "tags": [
+        "browser",
+        "automation",
+        "web"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T05:55:54.347Z",
+      "updatedAt": "2026-05-11T05:55:54.348Z"
+    },
+    {
+      "id": "api/weather",
+      "name": "Weather API",
+      "description": "Real-time weather data and forecast API integration",
+      "type": "api",
+      "category": [
+        "network/http"
+      ],
+      "tags": [
+        "weather",
+        "forecast",
+        "api",
+        "http"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.188Z",
+      "updatedAt": "2026-05-11T06:18:58.188Z"
+    },
+    {
+      "id": "mcp/email",
+      "name": "Email",
+      "description": "Send and receive emails via SMTP and IMAP protocols",
+      "type": "mcp",
+      "category": [
+        "social/email"
+      ],
+      "tags": [
+        "email",
+        "smtp",
+        "imap",
+        "send",
+        "receive"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.190Z",
+      "updatedAt": "2026-05-11T06:18:58.190Z"
+    },
+    {
+      "id": "mcp/slack",
+      "name": "Slack",
+      "description": "Slack messaging integration for sending messages and managing channels",
+      "type": "mcp",
+      "category": [
+        "social/slack"
+      ],
+      "tags": [
+        "slack",
+        "message",
+        "notify",
+        "channel"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.190Z",
+      "updatedAt": "2026-05-11T06:18:58.190Z"
+    },
+    {
+      "id": "mcp/clipboard",
+      "name": "Clipboard",
+      "description": "System clipboard read/write operations",
+      "type": "mcp",
+      "category": [
+        "system/clipboard"
+      ],
+      "tags": [
+        "clipboard",
+        "copy",
+        "paste",
+        "system"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.191Z",
+      "updatedAt": "2026-05-11T06:18:58.191Z"
+    },
+    {
+      "id": "mcp/notification",
+      "name": "System Notification",
+      "description": "Send native system notifications and alerts",
+      "type": "mcp",
+      "category": [
+        "system/notification"
+      ],
+      "tags": [
+        "notification",
+        "alert",
+        "system",
+        "notify"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.192Z",
+      "updatedAt": "2026-05-11T06:18:58.192Z"
+    },
+    {
+      "id": "api/news",
+      "name": "News API",
+      "description": "Real-time news aggregation and search API",
+      "type": "api",
+      "category": [
+        "network/http"
+      ],
+      "tags": [
+        "news",
+        "rss",
+        "feed",
+        "search"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.193Z",
+      "updatedAt": "2026-05-11T06:18:58.193Z"
+    },
+    {
+      "id": "mcp/database",
+      "name": "Database",
+      "description": "SQL and NoSQL database operations - query, insert, update",
+      "type": "mcp",
+      "category": [
+        "system/database"
+      ],
+      "tags": [
+        "database",
+        "sql",
+        "mongodb",
+        "query"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.194Z",
+      "updatedAt": "2026-05-11T06:18:58.194Z"
+    },
+    {
+      "id": "mcp/image",
+      "name": "Image Processing",
+      "description": "Image manipulation, transformation, and analysis capabilities",
+      "type": "mcp",
+      "category": [
+        "system/media"
+      ],
+      "tags": [
+        "image",
+        "resize",
+        "convert",
+        "thumbnail",
+        "ocr"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.197Z",
+      "updatedAt": "2026-05-11T06:18:58.197Z"
+    },
+    {
+      "id": "api/translate",
+      "name": "Translation API",
+      "description": "Multi-language translation using AI models",
+      "type": "api",
+      "category": [
+        "ai/local"
+      ],
+      "tags": [
+        "translate",
+        "language",
+        "nlp",
+        "ai"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.198Z",
+      "updatedAt": "2026-05-11T06:18:58.198Z"
+    },
+    {
+      "id": "mcp/calendar",
+      "name": "Calendar",
+      "description": "Calendar integration for scheduling and event management",
+      "type": "mcp",
+      "category": [
+        "social/calendar"
+      ],
+      "tags": [
+        "calendar",
+        "schedule",
+        "event",
+        "appointment"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.200Z",
+      "updatedAt": "2026-05-11T06:18:58.200Z"
+    },
+    {
+      "id": "mcp/tts",
+      "name": "Text to Speech",
+      "description": "Convert text to natural speech using TTS engines",
+      "type": "mcp",
+      "category": [
+        "ai/local"
+      ],
+      "tags": [
+        "tts",
+        "speech",
+        "audio",
+        "synthesis"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.201Z",
+      "updatedAt": "2026-05-11T06:18:58.201Z"
+    },
+    {
+      "id": "mcp/screenshot",
+      "name": "Screenshot",
+      "description": "Capture screenshots of web pages and desktop",
+      "type": "mcp",
+      "category": [
+        "browser/web"
+      ],
+      "tags": [
+        "screenshot",
+        "capture",
+        "image",
+        "web"
+      ],
+      "version": "1.0.0",
+      "provider": "user",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": null,
+      "createdAt": "2026-05-11T06:18:58.202Z",
+      "updatedAt": "2026-05-11T06:18:58.202Z"
+    },
+    {
+      "id": "mcp/my-custom-mcp",
+      "name": "My Custom Mcp",
+      "description": "MCP Server: my-custom-mcp",
+      "type": "mcp",
+      "category": [
+        "system/mcp"
+      ],
+      "tags": [
+        "mcp",
+        "server",
+        "my-custom-mcp"
+      ],
+      "version": "1.0.0",
+      "provider": "openclaw",
+      "author": null,
+      "homepage": null,
+      "examples": [],
+      "dependencies": [],
+      "config": {
+        "command": "node",
+        "args": [
+          "server.js"
+        ],
+        "env": {},
+        "configPath": "C:\\Users\\lifei08\\.openclaw\\config\\mcp.json"
+      },
+      "createdAt": "2026-05-11T10:20:26.591Z",
+      "updatedAt": "2026-05-11T10:20:26.593Z"
+    },
+    {
+      "id": "slack-mcp-server",
+      "name": "Slack mcp server",
+      "description": "Model Context Protocol (MCP) server for Slack Workspaces. This integration supports both Stdio and SSE transports, proxy settings and does not require any permissions or bots being created or approved by Workspace admins",
+      "type": "mcp",
+      "category": [
+        "system/mcp",
+        "type/communication"
+      ],
+      "tags": [
+        "mcp",
+        "slack",
+        "slack-api",
+        "model context protocol",
+        "model",
+        "context",
+        "protocol",
+        "npm",
+        "communication"
+      ],
+      "version": "latest",
+      "provider": "npm",
+      "author": "korotovsky",
+      "homepage": "https://github.com/korotovsky/slack-mcp-server#readme",
+      "examples": [],
+      "dependencies": [],
+      "config": {
+        "source": {
+          "type": "npm",
+          "package": "slack-mcp-server",
+          "registry": "https://www.npmjs.com/package/slack-mcp-server"
+        },
+        "configTemplate": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "korotovsky/slack-mcp-server"
+          ],
+          "env": {}
+        },
+        "configParams": [],
+        "capabilities": [
+          "Send Slack Message",
+          "Read Slack Channels",
+          "Slack Notifications",
+          "HTTP Requests",
+          "API Calls",
+          "Store Memories"
+        ],
+        "requirements": {
+          "node": ">=18.0.0"
+        },
+        "links": {
+          "homepage": "https://github.com/korotovsky/slack-mcp-server#readme",
+          "npm": "https://www.npmjs.com/package/slack-mcp-server",
+          "repository": "git+https://github.com/korotovsky/slack-mcp-server.git",
+          "bugs": "https://github.com/korotovsky/slack-mcp-server/issues"
+        },
+        "quality": {
+          "downloadsMonthly": 69951,
+          "searchScore": 94,
+          "qualityScore": 100,
+          "maintenanceScore": 100,
+          "publisher": "korotovsky",
+          "license": "MIT",
+          "lastUpdated": "2026-05-11T04:35:30.109Z"
+        }
+      },
+      "createdAt": "2026-05-12T05:38:33.654Z",
+      "updatedAt": "2026-05-12T05:38:33.654Z"
+    },
+    {
+      "id": "slack_types",
+      "name": "Types",
+      "description": "Shared type definitions for the Node Slack SDK",
+      "type": "mcp",
+      "category": [
+        "system/mcp",
+        "type/communication"
+      ],
+      "tags": [
+        "slack",
+        "typescript",
+        "types",
+        "api",
+        "mcp",
+        "npm",
+        "communication"
+      ],
+      "version": "latest",
+      "provider": "npm",
+      "author": "GitHub Actions",
+      "homepage": "https://docs.slack.dev/tools/node-slack-sdk/reference/types/",
+      "examples": [],
+      "dependencies": [],
+      "config": {
+        "source": {
+          "type": "npm",
+          "package": "@slack/types",
+          "registry": "https://www.npmjs.com/package/@slack/types"
+        },
+        "configTemplate": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "slackapi/node-slack-sdk"
+          ],
+          "env": {}
+        },
+        "configParams": [],
+        "capabilities": [
+          "Send Slack Message",
+          "Read Slack Channels",
+          "Slack Notifications",
+          "HTTP Requests",
+          "API Calls"
+        ],
+        "requirements": {
+          "node": ">=18.0.0"
+        },
+        "links": {
+          "homepage": "https://docs.slack.dev/tools/node-slack-sdk/reference/types/",
+          "npm": "https://www.npmjs.com/package/@slack/types",
+          "repository": "git+https://github.com/slackapi/node-slack-sdk.git",
+          "bugs": "https://github.com/slackapi/node-slack-sdk/issues"
+        },
+        "quality": {
+          "downloadsMonthly": 36237383,
+          "searchScore": 95,
+          "qualityScore": 100,
+          "maintenanceScore": 100,
+          "publisher": "GitHub Actions",
+          "license": "MIT",
+          "lastUpdated": "2026-05-11T04:30:29.871Z"
+        }
+      },
+      "createdAt": "2026-05-12T05:43:05.897Z",
+      "updatedAt": "2026-05-12T05:43:05.897Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "file",
+      "name": "File Operations",
+      "children": [
+        {
+          "id": "file/system",
+          "name": "System Files"
+        },
+        {
+          "id": "file/cloud",
+          "name": "Cloud Storage"
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "name": "Network",
+      "children": [
+        {
+          "id": "network/http",
+          "name": "HTTP Requests"
+        },
+        {
+          "id": "network/websocket",
+          "name": "WebSocket"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "name": "AI Capabilities",
+      "children": [
+        {
+          "id": "ai/openai",
+          "name": "OpenAI"
+        },
+        {
+          "id": "ai/claude",
+          "name": "Claude"
+        },
+        {
+          "id": "ai/local",
+          "name": "Local Models"
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "name": "Browser",
+      "children": [
+        {
+          "id": "browser/web",
+          "name": "Web Automation"
+        },
+        {
+          "id": "browser/chrome",
+          "name": "Chrome Extension"
+        }
+      ]
+    },
+    {
+      "id": "system",
+      "name": "System",
+      "children": [
+        {
+          "id": "system/clipboard",
+          "name": "Clipboard"
+        },
+        {
+          "id": "system/notification",
+          "name": "Notifications"
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "name": "Social",
+      "children": [
+        {
+          "id": "social/email",
+          "name": "Email"
+        },
+        {
+          "id": "social/slack",
+          "name": "Slack"
+        }
+      ]
+    }
+  ],
+  "lastScanned": "2026-05-12T00:42:41.943Z"
+}

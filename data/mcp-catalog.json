@@ -1,0 +1,1140 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-05-11",
+  "sources": {
+    "builtIn": true,
+    "description": "精选 MCP 服务器目录，持续更新"
+  },
+  "mcpServers": [
+    {
+      "id": "filesystem",
+      "name": "文件系统",
+      "nameEn": "Filesystem",
+      "description": "读取、写入和管理本地文件系统，支持目录遍历、文件搜索、批量操作",
+      "category": "file",
+      "tags": [
+        "文件",
+        "文件系统",
+        "读取",
+        "写入",
+        "目录"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-filesystem",
+        "registry": "https://npmjs.com/package/@modelcontextprotocol/server-filesystem"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem",
+          "${path}"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "path",
+          "type": "string",
+          "required": true,
+          "description": "允许访问的根目录路径",
+          "default": "~/Documents",
+          "example": "C:/Users/YourName/Projects"
+        }
+      ],
+      "capabilities": [
+        "读取文件",
+        "写入文件",
+        "列出目录",
+        "搜索文件",
+        "创建目录"
+      ],
+      "requirements": {
+        "node": ">=18.0.0"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+        "npm": "https://npmjs.com/package/@modelcontextprotocol/server-filesystem"
+      },
+      "verified": true,
+      "popularity": 5
+    },
+    {
+      "id": "google-drive",
+      "name": "Google Drive",
+      "nameEn": "Google Drive",
+      "description": "与 Google Drive 云端硬盘交互，搜索文件、读写文档、管理权限",
+      "category": "file",
+      "tags": [
+        "云盘",
+        "Google",
+        "云存储",
+        "文档"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-google-drive",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-google-drive"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "credentials",
+          "type": "string",
+          "required": true,
+          "description": "Google OAuth 凭证 JSON 文件路径",
+          "default": "./credentials.json",
+          "example": "./google-credentials.json"
+        },
+        {
+          "name": "token",
+          "type": "string",
+          "required": true,
+          "description": "OAuth token 存储文件路径",
+          "default": "./token.json",
+          "example": "./google-token.json"
+        }
+      ],
+      "capabilities": [
+        "列出文件",
+        "搜索文件",
+        "读取文档",
+        "下载文件",
+        "上传文件"
+      ],
+      "requirements": {
+        "node": ">=18.0.0"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-drive"
+      },
+      "verified": true,
+      "popularity": 4
+    },
+    {
+      "id": "baidu-netdisk",
+      "name": "百度网盘",
+      "nameEn": "Baidu NetDisk",
+      "description": "与百度网盘交互，上传下载文件、管理网盘内容、分享链接操作",
+      "category": "file",
+      "tags": [
+        "云盘",
+        "百度",
+        "网盘",
+        "云存储"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-baidu-netdisk",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-baidu-netdisk"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "bduss",
+          "type": "string",
+          "required": true,
+          "description": "百度网盘 BDUSS Cookie（从浏览器获取）",
+          "default": "",
+          "example": "从百度网盘网页版 F12 控制台获取"
+        }
+      ],
+      "capabilities": [
+        "列出文件",
+        "下载文件",
+        "上传文件",
+        "分享文件",
+        "管理目录"
+      ],
+      "requirements": {
+        "node": ">=18.0.0"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/baidu-netdisk"
+      },
+      "verified": false,
+      "popularity": 3,
+      "notes": "需要百度网盘账号，部分功能需要会员"
+    },
+    {
+      "id": "quark-netdisk",
+      "name": "夸克网盘",
+      "nameEn": "Quark NetDisk",
+      "description": "与夸克网盘（阿里云盘）交互，支持文件管理、批量操作、分享链接",
+      "category": "file",
+      "tags": [
+        "云盘",
+        "夸克",
+        "阿里云盘",
+        "网盘",
+        "云存储"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-quark-netdisk",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-quark-netdisk"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "arksid",
+          "type": "string",
+          "required": true,
+          "description": "夸克网盘 ARKSID（从夸克 APP 获取）",
+          "default": "",
+          "example": "从夸克网盘网页版获取"
+        },
+        {
+          "name": "root_path",
+          "type": "string",
+          "required": false,
+          "description": "允许访问的根目录路径",
+          "default": "/",
+          "example": "/我的资源"
+        }
+      ],
+      "capabilities": [
+        "列出文件",
+        "下载文件",
+        "上传文件",
+        "分享文件",
+        "搜索文件"
+      ],
+      "requirements": {
+        "node": ">=18.0.0"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/quark-netdisk"
+      },
+      "verified": false,
+      "popularity": 2,
+      "notes": "需要夸克网盘账号（阿里体系）"
+    },
+    {
+      "id": "puppeteer",
+      "name": "浏览器自动化（Puppeteer）",
+      "nameEn": "Browser Automation (Puppeteer)",
+      "description": "使用 Puppeteer 控制 Chromium 浏览器，支持网页截图、表单填写、数据抓取",
+      "category": "browser",
+      "tags": [
+        "浏览器",
+        "自动化",
+        "Puppeteer",
+        "网页",
+        "截图",
+        "爬虫"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-puppeteer",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-puppeteer"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "browser_path",
+          "type": "string",
+          "required": false,
+          "description": "Chromium 可执行文件路径（留空自动下载）",
+          "default": "",
+          "example": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+        }
+      ],
+      "capabilities": [
+        "打开网页",
+        "截图",
+        "填表",
+        "点击",
+        "提取数据",
+        "执行JS"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "chrome": "optional"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer",
+        "npm": "https://npmjs.com/package/@modelcontextprotocol/server-puppeteer"
+      },
+      "verified": true,
+      "popularity": 5
+    },
+    {
+      "id": "playwright",
+      "name": "浏览器自动化（Playwright）",
+      "nameEn": "Browser Automation (Playwright)",
+      "description": "使用 Playwright 控制多浏览器（Chromium/Firefox/WebKit），支持复杂网页交互和测试",
+      "category": "browser",
+      "tags": [
+        "浏览器",
+        "自动化",
+        "Playwright",
+        "网页",
+        "测试",
+        "爬虫"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-playwright",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-playwright"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "browser",
+          "type": "string",
+          "required": false,
+          "description": "默认浏览器类型",
+          "default": "chromium",
+          "example": "chromium | firefox | webkit"
+        }
+      ],
+      "capabilities": [
+        "打开网页",
+        "截图",
+        "填表",
+        "点击",
+        "提取数据",
+        "PDF导出"
+      ],
+      "requirements": {
+        "node": ">=18.0.0"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/playwright"
+      },
+      "verified": true,
+      "popularity": 4
+    },
+    {
+      "id": "postgres",
+      "name": "PostgreSQL 数据库",
+      "nameEn": "PostgreSQL",
+      "description": "连接和操作 PostgreSQL 数据库，执行 SQL 查询、管理表结构、事务处理",
+      "category": "database",
+      "tags": [
+        "数据库",
+        "PostgreSQL",
+        "SQL",
+        "查询"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-postgres",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-postgres",
+          "${connection_string}"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "connection_string",
+          "type": "string",
+          "required": true,
+          "description": "PostgreSQL 连接字符串",
+          "default": "postgresql://user:password@localhost:5432/mydb",
+          "example": "postgresql://postgres:secret@db.example.com:5432/production"
+        }
+      ],
+      "capabilities": [
+        "执行SQL",
+        "查询数据",
+        "创建表",
+        "事务处理",
+        "导出数据"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "postgres": ">=13"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres"
+      },
+      "verified": true,
+      "popularity": 5
+    },
+    {
+      "id": "sqlite",
+      "name": "SQLite 数据库",
+      "nameEn": "SQLite",
+      "description": "轻量级 SQLite 数据库操作，无需独立服务器进程，适合本地数据存储",
+      "category": "database",
+      "tags": [
+        "数据库",
+        "SQLite",
+        "SQL",
+        "轻量"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-sqlite",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-sqlite",
+          "${db_path}"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "db_path",
+          "type": "string",
+          "required": true,
+          "description": "SQLite 数据库文件路径",
+          "default": "./data.db",
+          "example": "C:/Users/data/app.db"
+        }
+      ],
+      "capabilities": [
+        "执行SQL",
+        "查询数据",
+        "创建表",
+        "数据库管理"
+      ],
+      "requirements": {
+        "node": ">=18.0.0"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/sqlite"
+      },
+      "verified": true,
+      "popularity": 4
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "nameEn": "OpenAI",
+      "description": "调用 OpenAI API 进行文本生成、嵌入、模型管理等操作",
+      "category": "ai",
+      "tags": [
+        "AI",
+        "OpenAI",
+        "GPT",
+        "大模型",
+        "API"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-openai",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-openai"
+        ],
+        "env": {
+          "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "OPENAI_API_KEY",
+          "type": "string",
+          "required": true,
+          "description": "OpenAI API Key",
+          "default": "",
+          "example": "sk-..."
+        },
+        {
+          "name": "model",
+          "type": "string",
+          "required": false,
+          "description": "默认模型",
+          "default": "gpt-4o",
+          "example": "gpt-4o | gpt-4-turbo | gpt-3.5-turbo"
+        }
+      ],
+      "capabilities": [
+        "文本生成",
+        "嵌入向量",
+        "模型列表",
+        "费用查询"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "openai_key": true
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/openai"
+      },
+      "verified": true,
+      "popularity": 5
+    },
+    {
+      "id": "slack",
+      "name": "Slack",
+      "nameEn": "Slack",
+      "description": "与 Slack 工作区交互，发送消息、查询频道、文件分享、用户管理",
+      "category": "communication",
+      "tags": [
+        "通讯",
+        "Slack",
+        "即时通讯",
+        "团队协作"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-slack",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-slack"
+        ],
+        "env": {
+          "SLACK_BOT_TOKEN": "${SLACK_BOT_TOKEN}",
+          "SLACK_TEAM_ID": "${SLACK_TEAM_ID}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "SLACK_BOT_TOKEN",
+          "type": "string",
+          "required": true,
+          "description": "Slack Bot User OAuth Token (xoxb-...)",
+          "default": "",
+          "example": "xoxb-1234567890123-..."
+        },
+        {
+          "name": "SLACK_TEAM_ID",
+          "type": "string",
+          "required": true,
+          "description": "Slack Team ID",
+          "default": "",
+          "example": "T0123456789"
+        }
+      ],
+      "capabilities": [
+        "发送消息",
+        "读取频道",
+        "搜索消息",
+        "文件分享",
+        "用户列表"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "slack_app": true
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/slack"
+      },
+      "verified": true,
+      "popularity": 5
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "nameEn": "Discord",
+      "description": "与 Discord 服务器交互，发送消息、管理频道、读取历史、用户互动",
+      "category": "communication",
+      "tags": [
+        "通讯",
+        "Discord",
+        "机器人",
+        "即时通讯"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-discord",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-discord"
+        ],
+        "env": {
+          "DISCORD_BOT_TOKEN": "${DISCORD_BOT_TOKEN}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "DISCORD_BOT_TOKEN",
+          "type": "string",
+          "required": true,
+          "description": "Discord Bot Token",
+          "default": "",
+          "example": "从 Discord Developer Portal 获取"
+        }
+      ],
+      "capabilities": [
+        "发送消息",
+        "读取频道",
+        "管理服务器",
+        "用户互动"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "discord_app": true
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/discord"
+      },
+      "verified": true,
+      "popularity": 4
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "nameEn": "Telegram",
+      "description": "与 Telegram Bot 交互，发送消息、读取群组、处理命令、文件操作",
+      "category": "communication",
+      "tags": [
+        "通讯",
+        "Telegram",
+        "机器人",
+        "即时通讯"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-telegram",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-telegram"
+        ],
+        "env": {
+          "TELEGRAM_BOT_TOKEN": "${TELEGRAM_BOT_TOKEN}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "TELEGRAM_BOT_TOKEN",
+          "type": "string",
+          "required": true,
+          "description": "Telegram Bot Token (从 @BotFather 获取)",
+          "default": "",
+          "example": "123456789:ABCdefGHIjklMNOpqrsTUVwxyz"
+        }
+      ],
+      "capabilities": [
+        "发送消息",
+        "读取消息",
+        "群组管理",
+        "文件分享"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "telegram_bot": true
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/telegram"
+      },
+      "verified": true,
+      "popularity": 4
+    },
+    {
+      "id": "feishu",
+      "name": "飞书",
+      "nameEn": "Feishu (Lark)",
+      "description": "与飞书（Lark）平台交互，发送消息、管理云文档、审批流程、企业管理",
+      "category": "communication",
+      "tags": [
+        "通讯",
+        "飞书",
+        "Lark",
+        "企业协作",
+        "文档"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-feishu",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-feishu"
+        ],
+        "env": {
+          "FEISHU_APP_ID": "${FEISHU_APP_ID}",
+          "FEISHU_APP_SECRET": "${FEISHU_APP_SECRET}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "FEISHU_APP_ID",
+          "type": "string",
+          "required": true,
+          "description": "飞书自建应用 App ID",
+          "default": "",
+          "example": "cli_xxxxxxxxxxxxxx"
+        },
+        {
+          "name": "FEISHU_APP_SECRET",
+          "type": "string",
+          "required": true,
+          "description": "飞书自建应用 App Secret",
+          "default": "",
+          "example": "从飞书开放平台获取"
+        }
+      ],
+      "capabilities": [
+        "发送消息",
+        "读取消息",
+        "云文档",
+        "日历",
+        "通讯录",
+        "审批"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "feishu_app": true
+      },
+      "links": {
+        "homepage": "https://open.feishu.cn/",
+        "docs": "https://open.feishu.cn/document/ukTMukTMukTM/uADOeUjLwgDM14CM4ATN"
+      },
+      "verified": false,
+      "popularity": 4,
+      "notes": "需在飞书开放平台创建自建应用并开通权限"
+    },
+    {
+      "id": "dingtalk",
+      "name": "钉钉",
+      "nameEn": "DingTalk",
+      "description": "与钉钉平台交互，发送消息、工作通知、审批流、企业组织管理",
+      "category": "communication",
+      "tags": [
+        "通讯",
+        "钉钉",
+        "企业",
+        "工作通知",
+        "审批"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-dingtalk",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-dingtalk"
+        ],
+        "env": {
+          "DINGTALK_APP_KEY": "${DINGTALK_APP_KEY}",
+          "DINGTALK_APP_SECRET": "${DINGTALK_APP_SECRET}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "DINGTALK_APP_KEY",
+          "type": "string",
+          "required": true,
+          "description": "钉钉应用 App Key",
+          "default": "",
+          "example": "dingxxxxxxxxxxxx"
+        },
+        {
+          "name": "DINGTALK_APP_SECRET",
+          "type": "string",
+          "required": true,
+          "description": "钉钉应用 App Secret",
+          "default": "",
+          "example": "从钉钉开放平台获取"
+        }
+      ],
+      "capabilities": [
+        "发送消息",
+        "工作通知",
+        "考勤",
+        "审批",
+        "通讯录"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "dingtalk_app": true
+      },
+      "links": {
+        "homepage": "https://open.dingtalk.com/",
+        "docs": "https://open.dingtalk.com/document/orgapp"
+      },
+      "verified": false,
+      "popularity": 3,
+      "notes": "需在钉钉开放平台创建应用"
+    },
+    {
+      "id": "brave-search",
+      "name": "Brave 搜索",
+      "nameEn": "Brave Search",
+      "description": "使用 Brave Search API 进行网页搜索，隐私友好的搜索引擎替代方案",
+      "category": "search",
+      "tags": [
+        "搜索",
+        "Brave",
+        "网页搜索",
+        "API"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-brave-search",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-brave-search"
+        ],
+        "env": {
+          "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "BRAVE_API_KEY",
+          "type": "string",
+          "required": true,
+          "description": "Brave Search API Key",
+          "default": "",
+          "example": "从 https://brave.com/search/api/ 获取"
+        }
+      ],
+      "capabilities": [
+        "网页搜索",
+        "图片搜索",
+        "新闻搜索"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "brave_key": true
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search"
+      },
+      "verified": true,
+      "popularity": 4
+    },
+    {
+      "id": "google-search",
+      "name": "Google 搜索",
+      "nameEn": "Google Search",
+      "description": "使用 Google Custom Search API 进行网页搜索和信息检索",
+      "category": "search",
+      "tags": [
+        "搜索",
+        "Google",
+        "网页搜索",
+        "API"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-google-search",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-google-search"
+        ],
+        "env": {
+          "GOOGLE_API_KEY": "${GOOGLE_API_KEY}",
+          "GOOGLE_CSE_ID": "${GOOGLE_CSE_ID}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "GOOGLE_API_KEY",
+          "type": "string",
+          "required": true,
+          "description": "Google API Key",
+          "default": "",
+          "example": "从 Google Cloud Console 获取"
+        },
+        {
+          "name": "GOOGLE_CSE_ID",
+          "type": "string",
+          "required": true,
+          "description": "Google Custom Search Engine ID",
+          "default": "",
+          "example": "从 Google Programmable Search Engine 获取"
+        }
+      ],
+      "capabilities": [
+        "网页搜索",
+        "图片搜索",
+        "视频搜索"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "google_api": true
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/google-search"
+      },
+      "verified": true,
+      "popularity": 4
+    },
+    {
+      "id": "tavily-search",
+      "name": "Tavily AI 搜索",
+      "nameEn": "Tavily AI Search",
+      "description": "专为 AI 应用设计的搜索 API，支持实时搜索、新闻聚合、内容提取、减少幻觉",
+      "category": "search",
+      "tags": [
+        "搜索",
+        "Tavily",
+        "AI搜索",
+        "RAG",
+        "实时信息"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-tavily",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-tavily"
+        ],
+        "env": {
+          "TAVILY_API_KEY": "${TAVILY_API_KEY}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "TAVILY_API_KEY",
+          "type": "string",
+          "required": true,
+          "description": "Tavily API Key",
+          "default": "",
+          "example": "从 https://tavily.com 获取"
+        }
+      ],
+      "capabilities": [
+        "实时搜索",
+        "新闻聚合",
+        "内容提取",
+        "RAG增强"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "tavily_key": true
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/tavily",
+        "docs": "https://docs.tavily.com/"
+      },
+      "verified": true,
+      "popularity": 5,
+      "notes": "专为 RAG 和 AI 搜索场景优化，每日有免费额度"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "nameEn": "GitHub",
+      "description": "与 GitHub 交互，管理仓库、Issue、PR、Actions、代码搜索",
+      "category": "developer",
+      "tags": [
+        "开发",
+        "GitHub",
+        "代码",
+        "Git",
+        "协作"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-github",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-github"
+        ],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+        }
+      },
+      "configParams": [
+        {
+          "name": "GITHUB_PERSONAL_ACCESS_TOKEN",
+          "type": "string",
+          "required": true,
+          "description": "GitHub Personal Access Token",
+          "default": "",
+          "example": "ghp_xxxxxxxxxxxx (需要 repo 权限)"
+        }
+      ],
+      "capabilities": [
+        "仓库管理",
+        "Issue",
+        "PR",
+        "Actions",
+        "代码搜索",
+        "用户信息"
+      ],
+      "requirements": {
+        "node": ">=18.0.0",
+        "github_token": true
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/github"
+      },
+      "verified": true,
+      "popularity": 5
+    },
+    {
+      "id": "memory",
+      "name": "记忆系统",
+      "nameEn": "Memory",
+      "description": "持久化记忆存储，记录和检索对话历史、知识片段、用户偏好",
+      "category": "utility",
+      "tags": [
+        "记忆",
+        "知识",
+        "存储",
+        "向量"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-memory",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-memory"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "storage",
+          "type": "string",
+          "required": false,
+          "description": "存储文件路径",
+          "default": "./memory.json",
+          "example": "~/.openclaw/memory.json"
+        }
+      ],
+      "capabilities": [
+        "存储记忆",
+        "检索记忆",
+        "知识图谱",
+        "偏好学习"
+      ],
+      "requirements": {
+        "node": ">=18.0.0"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory"
+      },
+      "verified": true,
+      "popularity": 4
+    },
+    {
+      "id": "fetch",
+      "name": "HTTP 请求",
+      "nameEn": "Fetch (HTTP)",
+      "description": "发起 HTTP/HTTPS 请求，获取网页内容、调用 REST API、处理 Webhook",
+      "category": "utility",
+      "tags": [
+        "HTTP",
+        "API",
+        "请求",
+        "网络",
+        "网页内容"
+      ],
+      "source": {
+        "type": "npm",
+        "package": "@modelcontextprotocol/server-fetch",
+        "registry": "https://npmjs.com"
+      },
+      "configTemplate": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-fetch"
+        ],
+        "env": {}
+      },
+      "configParams": [
+        {
+          "name": "allowed_hosts",
+          "type": "string",
+          "required": false,
+          "description": "允许访问的域名（逗号分隔，留空允许所有）",
+          "default": "",
+          "example": "api.example.com,github.com"
+        }
+      ],
+      "capabilities": [
+        "GET请求",
+        "POST请求",
+        "获取网页",
+        "调用API"
+      ],
+      "requirements": {
+        "node": ">=18.0.0"
+      },
+      "links": {
+        "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch"
+      },
+      "verified": true,
+      "popularity": 5
+    }
+  ]
+}
