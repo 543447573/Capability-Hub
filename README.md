@@ -535,23 +535,7 @@ capability-hub/
 
 ## 更新日志
 
-### v2.1.0 (2026-05-12)
 
-- ✨ 新增 `hub discover-npm` — 从 NPM Registry 搜索 MCP 包
-- ✨ 新增 `hub list --type` — 按能力类型过滤
-- ✨ NPM 包自动格式转换（npm → registry），含分类推断和标签生成
-- ✨ MCP 目录管理：`hub catalog`、`hub template`、`hub install`
-- 🐛 修复 `--add` 包名匹配逻辑
-
-### v2.0.0 (2026-05-11)
-
-- ✨ 新增 HTTP API 服务
-- ✨ 新增 AI 推荐功能
-- ✨ 新增健康检查端点
-- 🐛 修复搜索评分超过 100% 的 bug
-- 🐛 修复推荐评分超过 100% 的 bug
-- 🐛 修复 MCP 进程崩溃导致服务器崩溃的 bug
-- 🔧 懒加载 MCP 进程，提升启动速度
 
 ---
 
@@ -563,5 +547,5 @@ MIT License
 
 ## 联系方式
 
-- 项目地址：`C:\Users\lifei08\.qclaw\capability-hub\`
-- 问题反馈：提交 Issue 或联系维护团队
+- 项目地址：`https://github.com/543447573/Capability-Hub`
+- 问题反馈：提交 Issue 或联系543447573@qq.com
