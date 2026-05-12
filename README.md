@@ -379,7 +379,7 @@ Capability Hub 自动扫描以下路径的 MCP 配置：
 ### 注册数据存储
 
 ```
-~/.qclaw/capability-hub/data/registry.json
+~/capability-hub/data/registry.json
 ```
 
 ---
