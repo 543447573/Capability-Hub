@@ -5,6 +5,7 @@ const CapabilityHub = require('../src/hub.js');
 const { recommend, analyzeIntent, extractKeywords } = require('../src/recommend.js');
 const { searchNPM, convertToCatalogFormat, convertToRegistryFormat } = require('../src/discover-npm.js');
 const LinksManager = require('../src/links.js');
+const openclaw = require('../src/openclaw-config.js');
 
 const hub = new CapabilityHub();
 const links = new LinksManager();
@@ -34,7 +35,33 @@ prog.command('info').description('Hub info').option('--json').action((opts) => {
 // ─── SCAN ─────────────────────────────────────────────────────────────────────
 prog.command('scan').description('Scan MCP configs and discover capabilities')
   .option('--json', 'Output JSON').action(async (opts) => {
-    const results = await hub.scanMCPConfigs();
+    const results = [];
+    const servers = openclaw.listMCPServers();
+    for (const [name, serverConfig] of Object.entries(servers)) {
+      const id = 'mcp/' + name;
+      if (!hub.getCapability(id)) {
+        const capability = hub.addCapability({
+          id,
+          name: hub.formatName(name),
+          description: 'MCP Server: ' + name,
+          type: 'mcp',
+          category: ['system/mcp'],
+          tags: ['mcp', 'server', name],
+          provider: 'openclaw',
+          config: {
+            command: serverConfig.command || null,
+            args: serverConfig.args || [],
+            env: serverConfig.env || {},
+            configPath: openclaw.OPENCLAW_JSON_PATH,
+          }
+        });
+        results.push({ status: 'added', id, capability });
+      } else {
+        results.push({ status: 'exists', id });
+      }
+    }
+    hub.registry.lastScanned = new Date().toISOString();
+    hub.saveRegistry(hub.registry);
     if (opts.json) { p(results); return; }
     console.log('');
     console.log('  Scan complete. Results:');
@@ -931,7 +958,7 @@ prog.command('template <mcpId>')
     console.log('  MCP: ' + mcp.name + ' (' + mcp.id + ')');
     console.log('');
     if (!opts.json) {
-      console.log('  # 复制以下配置到 ~/.openclaw/config/mcp.json 的 mcpServers 节点:');
+      console.log('  # 复制以下配置到 ~/.qclaw/openclaw.json → mcp.servers 节点:');
       console.log('');
       console.log('  ' + JSON.stringify(config, null, 2).replace(/\n/g, '\n  '));
       console.log('');
@@ -998,7 +1025,7 @@ prog.command('catalog')
       console.log('    hub catalog-add          添加自定义 MCP');
     }
     console.log('    hub catalog-refresh      更新目录');
-    console.log('    hub install <id>           安装 MCP 到 mcp.json');
+    console.log('    hub install <id>           安装 MCP 到 openclaw.json → mcp.servers');
     console.log('');
   });
 
@@ -1186,50 +1213,25 @@ prog.command('install <mcpId>')
       console.log('  ' + JSON.stringify(dryRunConfig, null, 2).replace(/\n/g, '\n  '));
       console.log('');
       if (!opts.apply) {
-        console.log('  使用 --apply 写入 mcp.json');
+        console.log('  使用 --apply 写入 openclaw.json → mcp.servers');
       }
     }
     if (!opts.dryRun || opts.apply) {
-      // Find mcp.json
-      const openclawDir = require('path').join(require('os').homedir(), '.openclaw', 'config');
-      const mcpJsonPath = require('path').join(openclawDir, 'mcp.json');
-      let mcpJson = { mcpServers: {} };
-      if (fs.existsSync(mcpJsonPath)) {
-        try {
-          mcpJson = JSON.parse(fs.readFileSync(mcpJsonPath, 'utf-8'));
-          // Handle legacy array format
-          if (Array.isArray(mcpJson.mcpServers)) {
-            const legacy = mcpJson.mcpServers;
-            mcpJson.mcpServers = {};
-            legacy.forEach(item => {
-              const key = Object.keys(item)[0];
-              if (key) mcpJson.mcpServers[key] = item[key];
-            });
-          }
-        } catch (e) {
-          console.error('  警告: mcp.json 解析失败，将创建新文件');
-          mcpJson = { mcpServers: {} };
-        }
-      } else {
-        console.log('  mcp.json 不存在，将创建新文件');
-      }
-      if (!mcpJson.mcpServers || typeof mcpJson.mcpServers !== 'object') {
-        mcpJson.mcpServers = {};
-      }
-
-      // Check for existing entry
-      const isOverwrite = !!mcpJson.mcpServers[mcpId];
+      // 写入 openclaw.json → mcp.servers
+      const isOverwrite = openclaw.hasMCPServer(mcpId);
       if (isOverwrite && !opts.force) {
-        console.error('  警告: ' + mcpId + ' 已存在于 mcp.json 中');
+        console.error('  警告: ' + mcpId + ' 已存在于 openclaw.json 中');
         console.error('  使用 --force 覆盖现有条目');
         process.exit(1);
       }
-      mcpJson.mcpServers[mcpId] = mcpConfig;
+      const ok = openclaw.addMCPServer(mcpId, mcpConfig);
+      if (!ok) {
+        console.error('  写入 openclaw.json 失败');
+        process.exit(1);
+      }
       console.log('  已' + (isOverwrite ? '覆盖' : '添加') + '条目: ' + mcpId);
-      if (!fs.existsSync(openclawDir)) fs.mkdirSync(openclawDir, { recursive: true });
-      fs.writeFileSync(mcpJsonPath, JSON.stringify(mcpJson, null, 2), 'utf-8');
       console.log('');
-      console.log('  已写入: ' + mcpJsonPath);
+      console.log('  已写入: ' + openclaw.getConfigPath());
       console.log('');
       console.log('  下一步:');
       console.log('    1. 重启 OpenClaw Gateway: openclaw gateway restart');
